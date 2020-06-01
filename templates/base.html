@@ -5,8 +5,15 @@
     <title>Доска объявлений - {% block title %}Главная{% endblock title %}</title>
 </head>
 <body>
-{% block content %}
+    <header>
+        <h1>{% block header %}Объявления :{% endblock header %}</h1>
+    </header>
+    <nav>
+        <a href="{% url 'index' %}"><h3>Главная</h3></a>
+        <a href="{% url 'create' %}"><h4>Создать новое объявление</h4></a>
+    </nav>
+    {% block content %}
 
-{% endblock content%}
+    {% endblock content%}
 </body>
 </html>

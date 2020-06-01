@@ -3,13 +3,10 @@
 {% block title %}{{ current_category.name }}{% endblock title %}
 
 {% block content %}
-  <h1>Объявления :</h1>
-  <h2>Категория : {{ current_category.name }}</h2>
-  <a href="{% url 'index' %}">Главная</a>
+  <h3>Категория : {{ current_category.name }}</h3>
 
   {% for category in categories %}
     <a href="{% url 'by_category' category.pk %}">{{ category.name }}</a>
-
   {% endfor %}
 
   {% for bb in bbs %}
