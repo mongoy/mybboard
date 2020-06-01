@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Новое объявление{% endblock title %}
+
+{% block content %}
+    <h1>Новое объявление :</h1>
+    <a href="{% url 'index' %}">Главная</a>
+    {% for category in categories %}
+        <a href="{% url 'by_category' category.pk %}">{{ category.name }}</a>
+    {% endfor %}
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Добавить">
+    </form>
+
+{% endblock content %}

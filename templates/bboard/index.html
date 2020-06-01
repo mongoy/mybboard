@@ -3,15 +3,17 @@
 {% block content %}
   <h1>Объявления :</h1>
   {% for category in categories %}
-    <a href="/bboard/{{ category.pk }}/">{{ category.name }}</a>
+    <a href="{% url 'by_category' category.pk %}">{{ category.name }}</a>
 
   {% endfor %}
   {% for bb in bbs %}
     <div>
         <p>{{ bb.title }}</p>
         <p>{{ bb.content }}</p>
-        <p><a href="/bboard/{{ bb.category.pk }}/">{{ bb.category.name }}</a></p>
+        <p><a href="{% url 'by_category' bb.category.pk %}">{{ bb.category.name }}</a></p>
         <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
     </div>
+
   {% endfor %}
+<a href="{% url 'create' %}"><h3>Создать новое объявление</h3></a>
 {% endblock content %}

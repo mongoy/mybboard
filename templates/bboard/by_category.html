@@ -5,10 +5,10 @@
 {% block content %}
   <h1>Объявления :</h1>
   <h2>Категория : {{ current_category.name }}</h2>
-  <a href="/bboard/">Главная</a>
+  <a href="{% url 'index' %}">Главная</a>
 
   {% for category in categories %}
-    <a href="/bboard/{{ category.pk }}/">{{ category.name }}</a>
+    <a href="{% url 'by_category' category.pk %}">{{ category.name }}</a>
 
   {% endfor %}
 
