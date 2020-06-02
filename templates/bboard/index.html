@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title %}Главная{% endblock title %}
-{% block header %}Объявления :{% endblock header %}
-{% block content %}
 
+{% block header %}Объявления :{% endblock header %}
+
+{% block nav %}
   {% for category in categories %}
     <a href="{% url 'by_category' category.pk %}">{{ category.name }}</a>
-
   {% endfor %}
+{% endblock nav %}
+
+{% block content %}
   {% for bb in bbs %}
     <div>
         <p>{{ bb.title }}</p>
@@ -15,7 +18,5 @@
         <p><a href="{% url 'by_category' bb.category.pk %}">{{ bb.category.name }}</a></p>
         <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
     </div>
-
   {% endfor %}
-
 {% endblock content %}

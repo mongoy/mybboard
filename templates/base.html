@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
+    <link href="{% static 'bboard/style.css' %}" rel="stylesheet" type="text/css">
     <title>Доска объявлений - {% block title %}Главная{% endblock title %}</title>
 </head>
 <body>
@@ -11,9 +13,13 @@
     <nav>
         <a href="{% url 'index' %}"><h3>Главная</h3></a>
         <a href="{% url 'create' %}"><h4>Создать новое объявление</h4></a>
+        {% block nav %}
+        {% endblock nav%}
     </nav>
-    {% block content %}
+    <section>
+        {% block content %}
 
-    {% endblock content%}
+        {% endblock content%}
+    </section>
 </body>
 </html>
